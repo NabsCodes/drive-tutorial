@@ -1,16 +1,9 @@
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
-import "../styles/globals.css";
-import { Inter } from "next/font/google";
+import "~/styles/globals.css";
+
+import { ClerkProvider } from "@clerk/nextjs";
+import { GeistSans } from "geist/font/sans";
 import type React from "react";
 import { PostHogProvider } from "./_providers/posthog-provider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Google Drive Clone",
@@ -24,10 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className="dark">
-        <body
-          className={`${inter.className} min-h-screen bg-gray-900 text-gray-100`}
-        >
+      <html lang="en" className={`${GeistSans.variable}`}>
+        <body>
           <PostHogProvider>{children}</PostHogProvider>
         </body>
       </html>
